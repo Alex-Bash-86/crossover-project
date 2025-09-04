@@ -6,7 +6,7 @@
 }
 
 /* Answer button base styling */
-.answer-button {
+.answer-btn {
   background-color: #e5e7eb; /* bg-gray-200 */
   color: #1f2937; /* text-gray-800 */
   font-weight: 500; /* font-medium */
@@ -16,15 +16,26 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
   transition: all 0.2s ease-in-out;
   border: none;
-  cursor: pointer;
+  cursor: hand;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Answer button hover effect */
-.answer-button:hover {
-  transform: translateY(-2px);
+.answer-btn:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #d1d5db;
+  background-color: #fdd783;
+  height: 2rem;
+  padding: 0.5rem 1rem;
 }
+
+/* animating like wizard randomly and loop infinitely on mouseover 
+  /* edited: was bs, couldn't even click the button
+  /*
+  /* animation: wiggle 1s infinite;
+  transform: scale(1.2);
+*/
 
 /* Correct and wrong answer colors */
 .correct {

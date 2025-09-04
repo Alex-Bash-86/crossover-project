@@ -7,7 +7,6 @@ const questions = [
       { text: "To apply text formatting.", correct: false },
       { text: "To link to an external stylesheet.", correct: false },
     ],
-    penalty: 3,
   },
   {
     question: "Which of the following is NOT a valid JavaScript data type?",
@@ -17,7 +16,6 @@ const questions = [
       { text: "Float", correct: true },
       { text: "String", correct: false },
     ],
-    penalty: 3,
   },
   {
     question: "In CSS, what does the 'C' stand for in 'CSS'?",
@@ -27,7 +25,15 @@ const questions = [
       { text: "Colorful", correct: false },
       { text: "Computer", correct: false },
     ],
-    penalty: 5,
+  },
+  {
+    question: "What is the primary purpose of a 'div' element in HTML?",
+    answers: [
+      { text: "To define a division or a section.", correct: true },
+      { text: "To create a list.", correct: false },
+      { text: "To apply text formatting.", correct: false },
+      { text: "To link to an external stylesheet.", correct: false },
+    ],
   },
   {
     question:
@@ -38,7 +44,6 @@ const questions = [
       { text: "text-spacing", correct: false },
       { text: "letter-spacing", correct: false },
     ],
-    penalty: 2,
   },
   {
     question: "In JavaScript, what is the '===' operator used for?",
@@ -48,7 +53,6 @@ const questions = [
       { text: "To compare values and types.", correct: true },
       { text: "To perform a logical OR operation.", correct: false },
     ],
-    penalty: 4,
   },
   {
     question: "Which HTML tag is used to create a hyperlink?",
@@ -58,7 +62,6 @@ const questions = [
       { text: "<href>", correct: false },
       { text: "<h1_link>", correct: false },
     ],
-    penalty: 5,
   },
   {
     question: "What does CSS stand for?",
@@ -68,18 +71,15 @@ const questions = [
       { text: "Computer Style Sheets", correct: false },
       { text: "Colorful Style Sheets", correct: false },
     ],
-    penalty: 3,
   },
   {
-    question:
-      "How do you declare a variable which can be changed in JavaScript?",
+    question: "How do you declare a variable in JavaScript?",
     answers: [
       { text: "variable myVar;", correct: false },
-      { text: "let myVar;", correct: true },
+      { text: "var myVar;", correct: true },
       { text: "v myVar;", correct: false },
       { text: "create myVar;", correct: false },
     ],
-    penalty: 4,
   },
   {
     question: "Which of the following is an example of an HTML semantic tag?",
@@ -89,7 +89,6 @@ const questions = [
       { text: "<footer>", correct: true },
       { text: "<p>", correct: false },
     ],
-    penalty: 3,
   },
   {
     question:
@@ -106,7 +105,6 @@ const questions = [
       { text: "To modify the style of an element.", correct: false },
       { text: "To create a new HTML element.", correct: false },
     ],
-    penalty: 2,
   },
   {
     question: "In CSS, what is the 'box model'?",
@@ -119,7 +117,6 @@ const questions = [
       { text: "A set of rules for positioning elements.", correct: false },
       { text: "A way to define the shape of an element.", correct: false },
     ],
-    penalty: 3,
   },
   {
     question: "What is the correct syntax for a JavaScript 'for' loop?",
@@ -129,11 +126,8 @@ const questions = [
       { text: "for (i = 0; i <= 5)", correct: false },
       { text: "for i = 1 to 5", correct: false },
     ],
-    penalty: 5,
   },
 ];
-
-// declaring DOM elements
 
 const startButton = document.getElementById("start-button");
 const questionContainer = document.getElementById("question-container");
@@ -145,14 +139,27 @@ const highScoreDisplay = document.getElementById("high-score-display");
 const wizardPrompt = document.getElementById("wizard-prompt");
 const wizardAvatar = document.getElementById("wizard-avatar");
 
-// Initialising variables
-const pointsPerQuestion = 10; // user defined point system right here!!
-
+// --- 3. Initialize game state variables ---
 let currentQuestionIndex = 0;
 let score = 0;
 let isGameActive = false;
 let highScore = localStorage.getItem("highScore") || 0; // Load high score from local storage
 highScoreDisplay.textContent = highScore;
+
+// changing image functions for the wiz
+
+function wizQuestion() {
+  // Set the new source path for the image
+  wizardAvatar.src = "./static/img/tux/tux-question.svg";
+}
+function wizHappy() {
+  // Set the new source path for the image
+  wizardAvatar.src = "./static/img/tux/tux-happy-1.svg";
+}
+function wizSad() {
+  // Set the new source path for the image
+  wizardAvatar.src = "./static/img/tux/tux-sad.svg";
+}
 
 function startGame() {
   isGameActive = true;
@@ -162,7 +169,7 @@ function startGame() {
   scoreDisplay.textContent = score;
   feedbackMessageElement.textContent = "";
   questionContainer.style.display = "block"; // Ensure question container is visible
-  wizardPrompt.textContent = "Let's test your knowledge, adventurer!";
+  wizardPrompt.textContent = `Let's test your knowledge, adventurer!`;
   showQuestion();
 }
 
@@ -181,7 +188,6 @@ function showQuestion() {
       button.classList.add("answer-btn");
       if (answer.correct) {
         button.dataset.correct = answer.correct;
-        button.dataset.penaltyPoints = questions.penalty;
       }
       button.addEventListener("click", selectAnswer);
       answerButtonsElement.appendChild(button);
@@ -194,23 +200,18 @@ function showQuestion() {
 function selectAnswer(e) {
   const selectedButton = e.target;
   const isCorrect = selectedButton.dataset.correct === "true";
-  let penaltyPoints = questions[currentQuestionIndex].penalty || 0;
-
-  if (penaltyPoints > 0) {
-    penaltyPoints = parseInt(penaltyPoints);
-  }
-  console.log(penaltyPoints);
 
   if (isCorrect) {
-    score += pointsPerQuestion;
+    score++;
     feedbackMessageElement.textContent = "Correct! ✨";
     selectedButton.classList.add("correct");
+    scoreDisplay.textContent = score;
+    wizardAvatar.classList.add("happy"); // Set the new source path for the image = "./static/img/tux/tux-happy-1.svg";
   } else {
     feedbackMessageElement.textContent = "Incorrect. ❌";
     selectedButton.classList.add("incorrect");
-    score -= penaltyPoints;
+    wizSad();
   }
-  scoreDisplay.textContent = score;
 
   // Disable all buttons after an answer is selected
   Array.from(answerButtonsElement.children).forEach((button) => {
@@ -221,8 +222,7 @@ function selectAnswer(e) {
   setTimeout(() => {
     currentQuestionIndex++;
     showQuestion();
-    pointsPerQuestion;
-  }, 2500); // 1.5 second delay
+  }, 1500); // 1.5 second delay
 }
 
 function endGame() {
