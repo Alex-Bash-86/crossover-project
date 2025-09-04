@@ -1,0 +1,52 @@
+/* Answer buttons grid layout */
+.answer-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Answer button base styling */
+.answer-button {
+  background-color: #e5e7eb; /* bg-gray-200 */
+  color: #1f2937; /* text-gray-800 */
+  font-weight: 500; /* font-medium */
+  padding: 0.75rem 1rem; /* py-3 px-4 */
+  border-radius: 0.75rem; /* rounded-xl */
+  text-align: left;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+/* Answer button hover effect */
+.answer-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #d1d5db;
+}
+
+/* Correct and wrong answer colors */
+.correct {
+  background-color: #34d399 !important; /* bg-green-500 */
+  color: white !important;
+}
+
+.wrong {
+  background-color: #ef4444 !important; /* bg-red-500 */
+  color: white !important;
+}
+
+/* Question and answer container */
+.question-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Question text */
+.question-text {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 600; /* font-semibold */
+  color: #64a2fa; /* text-gray-800 */
+  margin-bottom: 1rem;
+}
