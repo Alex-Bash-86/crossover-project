@@ -88,6 +88,15 @@ function wizSad() {
                   id="wizard-avatar"/>`;
   tuxContainer.innerHTML = tuxImg;
 }
+function wizInfo() {
+  // Set the new source path for the image
+  tuxContainer.innerHTML = "";
+  // Set the new source path for the image
+  let tuxImg = ` <img src="./static/img/tux/tux-idea.svg" width="100"
+                  height="100" alt="tux-wizard" class="wizard"
+                  id="wizard-avatar"/>`;
+  tuxContainer.innerHTML = tuxImg;
+}
 
 function updateHealthBar(penaltyPoints) {
   health -= penaltyPoints;
@@ -188,13 +197,15 @@ function selectAnswer(e) {
 }
 
 function endGame() {
+  wizInfo();
   isGameActive = false;
   feedbackMessageElement.textContent = "";
   questionTextElement.textContent = "Quiz complete!";
   answerButtonsElement.innerHTML = "";
-  feedbackMessageElement.textContent = `You scored ${score} out of ${questions.length}!`;
+  feedbackMessageElement.textContent = `You scored ${score} out of ${questions.length} questions!`;
   startButton.textContent = "Play Again";
   startButton.style.display = "block";
+  wizardPrompt.textContent = "Thanks for playing!";
 
   // Reset health bar
   healthBarContainer.style.display = "none";
