@@ -39,11 +39,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-
   /* Required for pseudo-element positioning */
   position: relative;
   overflow: hidden;
-
   /* some outter glow for more dimension */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   filter: drop-shadow(0 4px 6px rgba(2, 2, 5, 0.3));
