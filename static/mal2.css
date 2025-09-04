@@ -61,7 +61,7 @@
   font-size: 1.125rem; /* text-xl */
   font-weight: 600; /* font-semibold */
   color: #a5c8fa; /* text-gray-800 */
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .health-bar-container {
@@ -75,7 +75,7 @@
 
 .health-bar-fill {
   height: 100%;
-  width: 100%; /* we will update THIS value with JS */
+  /* width: 100%; we will update THIS value with JS */
   background-color: #4caf50;
   border-radius: 5px;
 }

@@ -42,7 +42,8 @@ body {
   /* Required for pseudo-element positioning */
   position: ab;
   overflow: hidden;
-  width: 85%;
+  width: 650px;
+  height: 425px;
   /* some outter glow for more dimension */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   filter: drop-shadow(0 4px 6px rgba(2, 2, 5, 0.3));
@@ -66,7 +67,7 @@ body {
   background-repeat: no-repeat;
   background-size: fill;
   animation-name: float;
-  animation-duration: 30s;
+  animation-duration: 27s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
@@ -82,12 +83,10 @@ body {
   }
 }
 
-.tux-avatar-container div {
+.tux-avatar-container {
+  /* Center the content horizontally */
   display: flex;
   justify-content: center /* Center horizontally */;
-  align-items: center /* Center vertically */;
-  align-content: center flex-start;
-  align-self: center;
 }
 
 /* Main content layout for desktop */

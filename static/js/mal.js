@@ -13,7 +13,8 @@ const highScoreDisplay = document.getElementById("high-score-display");
 const wizardPrompt = document.getElementById("wizard-prompt");
 const wizardAvatar = document.getElementById("wizard-avatar");
 const tuxContainer = document.getElementById("tux-avatar-container");
-// const healthBarFill = document.getElementById("health-bar-fill");
+const healthBarFill = document.getElementById("health-bar-fill");
+const healthBarContainer = document.getElementById("health-bar-container");
 const wpContainer = document.getElementById("game-container");
 
 // RND BG SWITCHER (yeah, really for both classes!) /*edited: not working as intended... YET!*/
@@ -57,6 +58,7 @@ let score = 0;
 let isGameActive = false;
 let highScore = localStorage.getItem("highScore") || 0; // Load high score from local storage
 highScoreDisplay.textContent = highScore;
+let health = 100;
 
 // AVATAR SWITCHER
 // changing image functions for the wiz
@@ -87,6 +89,21 @@ function wizSad() {
   tuxContainer.innerHTML = tuxImg;
 }
 
+function updateHealthBar(penaltyPoints) {
+  health -= penaltyPoints;
+  if (health < 0) {
+    health = 0;
+    healthBarContainer.innerHTML = "";
+    healthBarContainer.innerHTML = `<div class="health-bar-fill" id="health-bar-fill" style="width: ${health}%"></div>`;
+    // setting currentQuestionIndex to 999 to end the game
+    // as endgame() with currentQuestionIndex < questions.length will trigger a new question
+    currentQuestionIndex = 999;
+  } else {
+    healthBarContainer.innerHTML = "";
+    healthBarContainer.innerHTML = `<div class="health-bar-fill" id="health-bar-fill" style="width: ${health}%"></div>`;
+  }
+}
+
 // GAME LOGIC
 
 function startGame() {
@@ -99,17 +116,19 @@ function startGame() {
   questionContainer.style.display = "block"; // Ensure question container is visible
   wizardPrompt.textContent = "Let's test your knowledge, adventurer!";
   showQuestion();
+  healthBarContainer.innerHTML = `<div class="health-bar-fill" id="health-bar-fill" style="width: ${health}%"></div>`;
+  healthBarContainer.style.display = "block";
 }
 
 function showQuestion() {
   // Reset state
   answerButtonsElement.innerHTML = "";
   feedbackMessageElement.textContent = "";
-
   wizQuestion();
 
   if (currentQuestionIndex < questions.length) {
     let currentQuestion = questions[currentQuestionIndex];
+    console.log(currentQuestionIndex);
     questionTextElement.textContent = currentQuestion.question;
 
     currentQuestion.answers.forEach((answer) => {
@@ -149,6 +168,7 @@ function selectAnswer(e) {
       "Incorrect. ❌\nYou lost " + penaltyPoints + " points.";
     selectedButton.classList.add("incorrect");
     score -= penaltyPoints;
+    updateHealthBar(penaltyPoints * 10);
     wizSad();
   }
   scoreDisplay.textContent = score;
@@ -168,11 +188,19 @@ function selectAnswer(e) {
 
 function endGame() {
   isGameActive = false;
+  feedbackMessageElement.textContent = "";
   questionTextElement.textContent = "Quiz complete!";
   answerButtonsElement.innerHTML = "";
   feedbackMessageElement.textContent = `You scored ${score} out of ${questions.length}!`;
   startButton.textContent = "Play Again";
   startButton.style.display = "block";
+
+  // Reset health bar
+  healthBarContainer.style.display = "none";
+  health = 100;
+  healthBarContainer.innerHTML = `<div class="health-bar-fill" id="health-bar-fill" style="width: ${health}%"></div>`;
+
+  // block automatically starting of new game
 
   if (score > highScore) {
     highScore = score;
