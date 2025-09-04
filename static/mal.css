@@ -67,6 +67,21 @@ body {
   /* Optional: Add a gradient overlay > fallback if the image doesn't load */
   background: linear-gradient(to bottom, #3b5a97, #9c9ea3 80%);
   background-image: url("/static/img/world-1.png");
+  animation-name: float;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+@keyframes float {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.15) translate(5px, -5px);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
 }
 
 /* Main content layout for desktop */
