@@ -48,7 +48,7 @@ body {
   gap: 1.25rem;
   /* Required for pseudo-element positioning */
   overflow: hidden;
-  width: 100%;
+  width: 685px;
   height: 425px;
   /* some outter glow for more dimension */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
