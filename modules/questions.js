@@ -1,4 +1,4 @@
-const questions = [
+export const questions = [
   {
     question:
       'Vervollständigen Sie den Satz: “Von allen Seiten betrachtet – oder auch: Wie man es ...?”',
