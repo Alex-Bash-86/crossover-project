@@ -91,7 +91,7 @@ function wizSad() {
 
 function updateHealthBar(penaltyPoints) {
   health -= penaltyPoints;
-  if (health < 0) {
+  if (health <= 0) {
     health = 0;
     healthBarContainer.innerHTML = "";
     healthBarContainer.innerHTML = `<div class="health-bar-fill" id="health-bar-fill" style="width: ${health}%"></div>`;
