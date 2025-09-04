@@ -42,6 +42,7 @@ body {
   /* Required for pseudo-element positioning */
   position: ab;
   overflow: hidden;
+  width: 85%;
   /* some outter glow for more dimension */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   filter: drop-shadow(0 4px 6px rgba(2, 2, 5, 0.3));
@@ -81,10 +82,12 @@ body {
   }
 }
 
-.tux-wiz-container {
-  position: relative;
-  /* Optional: Add a gradient overlay > fallback if the image doesn't load */
-  background: linear-gradient(to bottom, #3b5a97, #9c9ea3 80%);
+.tux-avatar-container div {
+  display: flex;
+  justify-content: center /* Center horizontally */;
+  align-items: center /* Center vertically */;
+  align-content: center flex-start;
+  align-self: center;
 }
 
 /* Main content layout for desktop */
@@ -126,11 +129,11 @@ body {
   object-fit: contain;
   filter: drop-shadow(0 4px 6px rgba(2, 2, 5, 0.3));
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   /* animating wizard randomly and loop infinitely for some fun and depth */
   transition: transform 0.3s ease-in-out;
   animation: wiggle 3.5s infinite;
-  transform: scale(1.2);
+  transform: scale(1.4);
 }
 
 @keyframes wiggle {
