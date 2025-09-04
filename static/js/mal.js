@@ -125,6 +125,7 @@ function showQuestion() {
   answerButtonsElement.innerHTML = "";
   feedbackMessageElement.textContent = "";
   wizQuestion();
+  wizardPrompt.textContent = `Question ${currentQuestionIndex + 1}:`;
 
   if (currentQuestionIndex < questions.length) {
     let currentQuestion = questions[currentQuestionIndex];
