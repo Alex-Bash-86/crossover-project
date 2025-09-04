@@ -213,6 +213,13 @@ function endGame() {
   healthBarContainer.innerHTML = `<div class="health-bar-fill" id="health-bar-fill" style="width: ${health}%"></div>`;
 
   // block automatically starting of new game
+  // edited: realisied via updateHealthBar() function
+
+  // should we save the high score? / not sure yet, it's late!
+  // let highScore = localStorage.getItem("highScore");
+  // if (highScore === null) {
+  //   highScore = 0;
+  // }
 
   if (score > highScore) {
     highScore = score;
