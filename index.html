@@ -3,29 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./static/css/mal.css" />
-    <title>Wer wird WBS/CS Wizard?</title>
+    <link rel="stylesheet" href="./static/mal.css" />
+    <link rel="stylesheet" href="./static/mal2.css" />
+    <title>
+      WWDWBSCSCSW - Wer wird Deutschlands WBS Coding School Code Skill Wizard?
+    </title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./static/img/tux/favicon-32x32.png"
+    />
   </head>
   <body>
     <div id="root">
-      <h1 class="main-title">Wizard's WBC Quiz</h1>
+      <h1 class="main-title">Wizard's WBS Quiz</h1>
       <div class="container" id="game-container">
         <!-- mca: updated layout -->
         <div class="main-content">
           <!-- lp: wiz avatar and info board -->
           <div class="left-panel">
             <!-- tux-wiz + extra tile -->
-            <div id="tux-wiz-container" class="">
-              <h1 class="categorie-title">Kategorie: WBC</h1>
+            <div id="tux-wiz-container" class="tux-wiz">
+              <h1 class="categorie-title">Kategorie: WBS</h1>
               <h2 class="level-title">Level 1</h2>
-              <img
-                src="./static/img/wizard-avatar.svg"
-                width="100"
-                height="100"
-                alt=""
-                class="wizard"
-                id="wizard-avatar"
-              />
+              <div id="tux-avatar-container">
+                <div>
+                  <img
+                    src="./static/img/wizard-avatar.svg"
+                    width="100"
+                    height="100"
+                    alt=""
+                    class="wizard"
+                    id="wizard-avatar"
+                  />
+                </div>
+              </div>
+              <div class="health-bar-container" id="health-bar-container"></div>
             </div>
             <!-- need a scoreboard cause scoreboards are aw3sum dey say! -->
             <div id="info-board" class="info-board">
@@ -47,12 +62,14 @@
             </div>
             <!-- Feedback Section -->
             <div class="message-box">
-              <p id="feedback-message"></p>
+              <p id="feedback-message" class="feedback-message"></p>
             </div>
             <button id="start-button" class="start-button">Start Quiz</button>
           </div>
         </div>
       </div>
     </div>
+    <script src="./main.js"></script>
+    <script type="module" src="./static/js/mal.js"></script>
   </body>
 </html>

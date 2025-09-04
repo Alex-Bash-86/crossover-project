@@ -19,6 +19,13 @@ body {
   padding: 1rem;
   box-sizing: border-box;
   background-image: linear-gradient(to bottom, #3b5a97, #9c9ea3);
+  background-image: url("./img/worlds/bg.jpg");
+  /* adding grayscale to background */
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .main-title {
@@ -38,15 +45,15 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-
+  gap: 1.25rem;
   /* Required for pseudo-element positioning */
-  position: relative;
   overflow: hidden;
-
+  width: 685px;
+  height: 425px;
   /* some outter glow for more dimension */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   filter: drop-shadow(0 4px 6px rgba(2, 2, 5, 0.3));
+  background-image: url("../static/img/worlds/world-1.png");
 }
 
 .container::before {
@@ -57,17 +64,35 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/static/img/world-1.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
   /* Opacity and blur effect */
-  opacity: 0.5; /* Adjust this value (e.g., 0.3 for 30% opacity) */
-  backdrop-filter: blur(5px);
+  opacity: 0.69; /* Adjust this value (e.g., 0.3 for 30% opacity) */
 
   /* Ensures content is above the background */
   z-index: -1;
+  background-image: url("../static/img/worlds/world-1.png");
+  background-repeat: no-repeat;
+  background-size: fill;
+  animation-name: float;
+  animation-duration: 27s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+@keyframes float {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.15) translate(5px, -5px);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+.tux-avatar-container {
+  /* Center the content horizontally */
+  display: flex;
+  justify-content: center /* Center horizontally */;
 }
 
 /* Main content layout for desktop */
@@ -83,13 +108,6 @@ body {
   margin-bottom: 0.5rem;
   color: #208df3;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* Media query for tablet and smaller screens */
-@media (max-width: 768px) {
-  .main-content {
-    flex-direction: column;
-  }
 }
 
 /* title for level-update */
@@ -116,11 +134,37 @@ body {
   object-fit: contain;
   filter: drop-shadow(0 4px 6px rgba(2, 2, 5, 0.3));
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   /* animating wizard randomly and loop infinitely for some fun and depth */
   transition: transform 0.3s ease-in-out;
-  animation: wiggle 2s infinite;
-  transform: scale(1.2);
+  animation: wiggle 3.5s infinite;
+  transform: scale(1.4);
+}
+
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
+  }
 }
 
 /* Info board styling */
@@ -147,18 +191,18 @@ body {
 
 /* Wizard prompt text */
 .wizard-prompt {
-  color: #f3f3f3; /* text-gray-700 */
+  color: #99caf8; /* text-gray-700 */
   line-height: 1.625; /* leading-relaxed */
   font-style: italic;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   text-align: center;
-  font-style: bold;
+  letter-spacing: 3px;
+  font-weight: 400;
   font-size: 1.1rem;
 }
 
 /* Message box for feedback */
 .message-box {
-  min-height: 2.5rem;
   text-align: center;
   font-size: 1.125rem; /* text-lg */
   font-weight: 600; /* font-semibold */
@@ -167,11 +211,11 @@ body {
 
 /* Start/Play Again button */
 .start-button {
-  background-color: #e5b346; /* bg-indigo-600 */
+  background-color: #e5b346;
   color: white;
   font-weight: 700;
   padding: 0.75rem 1.5rem; /* py-3 px-6 */
-  border-radius: 9999px; /* rounded-full */
+  border-radius: 0.75rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
   transition: all 0.3s ease-in-out;
@@ -180,7 +224,7 @@ body {
 }
 
 .start-button:hover {
-  background-color: #dd6605; /* hover:bg-indigo-700 */
+  background-color: #dd6605; /* hover:bg */
 }
 
 /* Media queries for responsive design */

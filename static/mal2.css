@@ -1,0 +1,91 @@
+/* Answer buttons grid layout */
+.answer-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Answer button base styling */
+.answer-btn {
+  background-color: #e5e7eb; /* bg-gray-200 */
+  color: #1f2937; /* text-gray-800 */
+  font-weight: 500; /* font-medium */
+  padding: 0.75rem 1rem; /* py-3 px-4 */
+  border-radius: 0.75rem; /* rounded-xl */
+  text-align: left;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: hand;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2rem;
+  animation: cubic-bezier(1, 0, 0, 1);
+}
+
+/* Answer button hover effect */
+.answer-btn:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fdd783;
+  scale: 1.05;
+  padding: 0.5rem 1rem;
+}
+
+/* animating like wizard randomly and loop infinitely on mouseover 
+  /* edited: was bs, couldn't even click the button
+  /*
+  /* animation: wiggle 1s infinite;
+  transform: scale(1.2);
+*/
+
+/* Correct and wrong answer colors */
+.correct {
+  background-color: #34d399 !important; /* bg-green-500 */
+  color: white !important;
+}
+
+.wrong {
+  background-color: #ef4444 !important; /* bg-red-500 */
+  color: white !important;
+}
+
+/* Question and answer container */
+.question-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Question text */
+.question-text {
+  font-size: 1.125rem; /* text-xl */
+  font-weight: 600; /* font-semibold */
+  color: #a5c8fa; /* text-gray-800 */
+  margin-bottom: 0.5rem;
+}
+
+.health-bar-container {
+  width: 200px;
+  height: 20px;
+  border: 1px solid #000;
+  background-color: #eee;
+  border-radius: 5px;
+  display: none; /* we will set this value to "block" when the game starts */
+}
+
+.health-bar-fill {
+  height: 100%;
+  /* width: 100%; we will update THIS value with JS */
+  background-color: #4caf50;
+  border-radius: 5px;
+}
+
+.feedback-message {
+  color: #f3f3f3; /* text-gray-700 */
+  line-height: 1.625; /* leading-relaxed */
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
