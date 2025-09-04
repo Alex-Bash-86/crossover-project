@@ -85,13 +85,6 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Media query for tablet and smaller screens */
-@media (max-width: 768px) {
-  .main-content {
-    flex-direction: column;
-  }
-}
-
 /* title for level-update */
 .level-title {
   font-size: 1.25rem;
@@ -121,6 +114,31 @@ body {
   transition: transform 0.3s ease-in-out;
   animation: wiggle 2s infinite;
   transform: scale(1.2);
+}
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
+  }
 }
 
 /* Info board styling */
@@ -152,7 +170,7 @@ body {
   font-style: italic;
   margin-bottom: 1rem;
   text-align: center;
-  font-style: bold;
+  font-weight: bold;
   font-size: 1.1rem;
 }
 
