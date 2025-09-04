@@ -13,6 +13,42 @@ const highScoreDisplay = document.getElementById("high-score-display");
 const wizardPrompt = document.getElementById("wizard-prompt");
 const wizardAvatar = document.getElementById("wizard-avatar");
 const tuxContainer = document.getElementById("tux-avatar-container");
+// const healthBarFill = document.getElementById("health-bar-fill");
+const wpContainer = document.getElementById("game-container");
+
+// RND BG SWITCHER (yeah, really for both classes!) /*edited: not working as intended... YET!*/
+document.addEventListener("DOMContentLoaded", function () {
+  // Check if the container element exists
+  if (!wpContainer) {
+    console.error(
+      "Error: Container element not found. Please check your HTML selector."
+    );
+    return; // Exit the function if the element is not found
+  }
+
+  const loadWP = () => {
+    const wpArray = [
+      "/static/img/worlds/world-1.png",
+      "/static/img/worlds/world-2.png",
+      "/static/img/worlds/world-3.png",
+      "/static/img/worlds/world-4.png",
+    ];
+
+    const selectedWP = wpArray[Math.floor(Math.random() * wpArray.length)];
+    const img = new Image();
+    img.src = selectedWP;
+
+    img.onerror = () => {
+      console.error(`Error loading image: ${selectedWP}`);
+    };
+
+    img.onload = () => {
+      wpContainer.style.setProperty("background-image", `url('${selectedWP}')`);
+      console.log(`Background image set to: ${selectedWP}`);
+    };
+  };
+  // loadWP(); // Call the function to set the background
+});
 
 // Initialising variables
 const pointsPerQuestion = 10; // user defined point system right here!!
@@ -22,6 +58,7 @@ let isGameActive = false;
 let highScore = localStorage.getItem("highScore") || 0; // Load high score from local storage
 highScoreDisplay.textContent = highScore;
 
+// AVATAR SWITCHER
 // changing image functions for the wiz
 function wizQuestion() {
   tuxContainer.innerHTML = "";
