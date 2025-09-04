@@ -20,13 +20,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 2rem;
+  animation: cubic-bezier(1, 0, 0, 1);
 }
 
 /* Answer button hover effect */
 .answer-btn:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #fdd783;
-  height: 2rem;
+  scale: 1.05;
   padding: 0.5rem 1rem;
 }
 
@@ -56,8 +58,8 @@
 
 /* Question text */
 .question-text {
-  font-size: 1.25rem; /* text-xl */
+  font-size: 1.125rem; /* text-xl */
   font-weight: 600; /* font-semibold */
-  color: #64a2fa; /* text-gray-800 */
+  color: #a5c8fa; /* text-gray-800 */
   margin-bottom: 1rem;
 }
