@@ -11,46 +11,49 @@ const feedbackMessageElement = document.getElementById("feedback-message");
 const scoreDisplay = document.getElementById("score-display");
 const highScoreDisplay = document.getElementById("high-score-display");
 const wizardPrompt = document.getElementById("wizard-prompt");
-// const wizardAvatar = document.getElementById("wizard-avatar");
-const tuxContainer = document.getElementById("tux-avatar-container");
-// const healthBarFill = document.getElementById("health-bar-fill");
+// const tuxContainer = document.getElementById("tux-avatar-container");
 const healthBarContainer = document.getElementById("health-bar-container");
-const wpContainer = document.getElementById("game-container");
+// const wpContainer = document.getElementById("game-container");
 const categoryTitleContainer = document.getElementById("categorie-title");
+const lvlTitleContainer = document.getElementById("level-title");
+// const wizardAvatar = document.getElementById("wizard-avatar");
+// const healthBarFill = document.getElementById("health-bar-fill");
 
-// RND BG SWITCHER (yeah, really for both classes!) /*edited: not working as intended... YET!*/
-document.addEventListener("DOMContentLoaded", function () {
-  // Check if the container element exists
-  if (!wpContainer) {
-    console.error(
-      "Error: Container element not found. Please check your HTML selector."
-    );
-    return; // Exit the function if the element is not found
-  }
+// * Further Implementations:
+//* RND BG SWITCHER (yeah, really for both classes!) /*edited: those damn pseudo-classes- not working as intended... YET!*/
 
-  const loadWP = () => {
-    const wpArray = [
-      "/static/img/worlds/world-1.png",
-      "/static/img/worlds/world-2.png",
-      "/static/img/worlds/world-3.png",
-      "/static/img/worlds/world-4.png",
-    ];
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Check if the container element exists
+//   if (!wpContainer) {
+//     console.error(
+//       "Error: Container element not found. Please check your HTML selector."
+//     );
+//     return; // Exit the function if the element is not found
+//   }
 
-    const selectedWP = wpArray[Math.floor(Math.random() * wpArray.length)];
-    const img = new Image();
-    img.src = selectedWP;
+//   const loadWP = () => {
+//     const wpArray = [
+//       "/static/img/worlds/world-1.png",
+//       "/static/img/worlds/world-2.png",
+//       "/static/img/worlds/world-3.png",
+//       "/static/img/worlds/world-4.png",
+//     ];
 
-    img.onerror = () => {
-      console.error(`Error loading image: ${selectedWP}`);
-    };
+//     const selectedWP = wpArray[Math.floor(Math.random() * wpArray.length)];
+//     const img = new Image();
+//     img.src = selectedWP;
 
-    img.onload = () => {
-      wpContainer.style.setProperty("background-image", `url('${selectedWP}')`);
-      console.log(`Background image set to: ${selectedWP}`);
-    };
-  };
-  // loadWP(); // Call the function to set the background
-});
+//     img.onerror = () => {
+//       console.error(`Error loading image: ${selectedWP}`);
+//     };
+
+//     img.onload = () => {
+//       wpContainer.style.setProperty("background-image", `url('${selectedWP}')`);
+//       console.log(`Background image set to: ${selectedWP}`);
+//     };
+//   };
+//   // loadWP(); // Call the function to set the background
+// });
 
 // Initialising variables
 const pointsPerQuestion = 10; // user defined point system right here!!
@@ -60,6 +63,7 @@ let isGameActive = false;
 let highScore = localStorage.getItem("highScore") || 0; // Load high score from local storage
 highScoreDisplay.textContent = highScore;
 let health = 100;
+let actualLvl = 1; // setting the starting level, we'll add +1 for each level later
 
 // Function to update the health bar
 function updateHealthBar(penaltyPoints) {
@@ -78,6 +82,25 @@ function updateHealthBar(penaltyPoints) {
   }
 }
 
+// function to update the level title container > actual level to display
+//* FURTHER IMPLMENTATION IDEA : adding some cool effects in case we level up!
+function lvlUpdater() {
+  if (score <= 0) {
+    lvlTitleContainer.textContent = `Novice (${actualLvl})`;
+  }
+  if (score > 30) {
+    lvlTitleContainer.textContent = `Apprentice (${actualLvl + 1})`;
+  }
+  if (score > 55) {
+    lvlTitleContainer.textContent = `Young Gun Wiz (${actualLvl + 2})`;
+  }
+  if (score > 85) {
+    lvlTitleContainer.textContent = `Ninja (${actualLvl + 3})`;
+  }
+}
+
+// ** Further logic for mana bar
+// * will be implemented later
 // Function to update the mana bar
 let castCost = 10; // will get its value from an extra function
 // function updateManaBar(castCost) {
@@ -96,7 +119,9 @@ let castCost = 10; // will get its value from an extra function
 //   }
 // }
 
-// GAME LOGIC
+// Where the fun begins...
+
+//* GAME LOGIC
 
 function startGame() {
   isGameActive = true;
@@ -131,8 +156,11 @@ function showQuestion() {
 
     // setting category title
     categoryTitleContainer.textContent = `Kategorie: ${currentQuestion.category}`;
+    lvlUpdater();
 
+    // setting questions
     questionTextElement.textContent = currentQuestion.question;
+    // looping through answers
     currentQuestion.answers.forEach((answer) => {
       const button = document.createElement("button");
       button.textContent = answer.text;
@@ -145,11 +173,13 @@ function showQuestion() {
       answerButtonsElement.appendChild(button);
     });
   } else {
+    // if currentQuestionIndex >= questions.length / we reached the end of the questions-array
     endGame();
   }
 }
 
 function selectAnswer(e) {
+  // Check if the selected answer is correct
   const selectedButton = e.target;
   const isCorrect = selectedButton.dataset.correct === "true";
   let penaltyPoints = questions[currentQuestionIndex].penalty || 0;
@@ -157,7 +187,7 @@ function selectAnswer(e) {
   if (penaltyPoints > 0) {
     penaltyPoints = parseInt(penaltyPoints);
   }
-  console.log(penaltyPoints);
+  // console.log(penaltyPoints);
 
   if (isCorrect) {
     score += pointsPerQuestion;
@@ -185,7 +215,7 @@ function selectAnswer(e) {
     currentQuestionIndex++;
     showQuestion();
     pointsPerQuestion;
-  }, 2500); // 1.5 second delay
+  }, 2500); // 1.5 second delay /* using 2.5 for testing purposes */
 }
 
 function endGame() {
@@ -222,7 +252,7 @@ function endGame() {
   }
 }
 
-// --- 4. Event Listeners ---
+// THE button Event Listeners ---
 startButton.addEventListener("click", () => {
   startGame();
 });
