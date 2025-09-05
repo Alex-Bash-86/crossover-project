@@ -84,9 +84,9 @@ const questions = [
   {
     question: "Which of the following is an example of an HTML semantic tag?",
     answers: [
+      { text: "<footer>", correct: true },
       { text: "<div>", correct: false },
       { text: "<span>", correct: false },
-      { text: "<footer>", correct: true },
       { text: "<p>", correct: false },
     ],
     penalty: 3,
@@ -99,12 +99,12 @@ const questions = [
         text: "To select all elements that match a CSS selector.",
         correct: false,
       },
+      { text: "To modify the style of an element.", correct: false },
+      { text: "To create a new HTML element.", correct: false },
       {
         text: "To select the first element that matches a CSS selector.",
         correct: true,
       },
-      { text: "To modify the style of an element.", correct: false },
-      { text: "To create a new HTML element.", correct: false },
     ],
     penalty: 2,
   },
@@ -112,11 +112,11 @@ const questions = [
     question: "In CSS, what is the 'box model'?",
     answers: [
       { text: "A method for creating responsive layouts.", correct: false },
+      { text: "A set of rules for positioning elements.", correct: false },
       {
         text: "A visual formatting model where each element is rendered as a box.",
         correct: true,
       },
-      { text: "A set of rules for positioning elements.", correct: false },
       { text: "A way to define the shape of an element.", correct: false },
     ],
     penalty: 3,
