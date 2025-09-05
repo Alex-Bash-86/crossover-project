@@ -60,44 +60,7 @@ let highScore = localStorage.getItem("highScore") || 0; // Load high score from 
 highScoreDisplay.textContent = highScore;
 let health = 100;
 
-// AVATAR SWITCHER
-// changing image functions for the wiz
-// function wizQuestion() {
-//   tuxContainer.innerHTML = "";
-//   // Set the new source path for the image
-//   let tuxImg = ` <img src="./static/img/tux/tux-question.svg" width="100"
-//                   height="100" alt="tux-wizard" class="wizard"
-//                   id="wizard-avatar"/>`;
-//   tuxContainer.innerHTML = tuxImg;
-// }
-// function wizHappy() {
-//   // Set the new source path for the image
-//   tuxContainer.innerHTML = "";
-//   // Set the new source path for the image
-//   let tuxImg = ` <img src="./static/img/tux/tux-happy-1.svg" width="100"
-//                   height="100" alt="tux-wizard" class="wizard"
-//                   id="wizard-avatar"/>`;
-//   tuxContainer.innerHTML = tuxImg;
-// }
-// function wizSad() {
-//   // Set the new source path for the image
-//   tuxContainer.innerHTML = "";
-//   // Set the new source path for the image
-//   let tuxImg = ` <img src="./static/img/tux/tux-sad.svg" width="100"
-//                   height="100" alt="tux-wizard" class="wizard"
-//                   id="wizard-avatar"/>`;
-//   tuxContainer.innerHTML = tuxImg;
-// }
-// function wizInfo() {
-//   // Set the new source path for the image
-//   tuxContainer.innerHTML = "";
-//   // Set the new source path for the image
-//   let tuxImg = ` <img src="./static/img/tux/tux-idea.svg" width="100"
-//                   height="100" alt="tux-wizard" class="wizard"
-//                   id="wizard-avatar"/>`;
-//   tuxContainer.innerHTML = tuxImg;
-// }
-
+// Function to update the health bar
 function updateHealthBar(penaltyPoints) {
   health -= penaltyPoints;
   if (health <= 0) {
