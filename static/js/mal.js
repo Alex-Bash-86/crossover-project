@@ -77,6 +77,24 @@ function updateHealthBar(penaltyPoints) {
   }
 }
 
+// Function to update the mana bar
+let castCost = 10; // will get its value from an extra function
+// function updateManaBar(castCost) {
+//   health -= penaltyPoints;
+//   if (health <= 0) {
+//     health = 0;
+//     healthBarContainer.innerHTML = "";
+//     healthBarContainer.innerHTML = `<div class="health-bar-fill" id="health-bar-fill" style="width: ${health}%"></div>`;
+//     // setting currentQuestionIndex to 999 to end the game
+//     // as endgame() with currentQuestionIndex < questions.length will trigger a new question
+//     currentQuestionIndex = 999;
+//     // second thought: probably better to set currentQuestionIndex to questions.length, in case we got over 1000 questions :)))
+//   } else {
+//     healthBarContainer.innerHTML = "";
+//     healthBarContainer.innerHTML = `<div class="health-bar-fill" id="health-bar-fill" style="width: ${health}%"></div>`;
+//   }
+// }
+
 // GAME LOGIC
 
 function startGame() {
