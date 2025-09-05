@@ -8,6 +8,7 @@ const questions = [
       { text: "To link to an external stylesheet.", correct: false },
     ],
     penalty: 3,
+    category: "HTML",
   },
   {
     question: "Which of the following is NOT a valid JavaScript data type?",
@@ -18,6 +19,7 @@ const questions = [
       { text: "String", correct: false },
     ],
     penalty: 3,
+    category: "JS",
   },
   {
     question: "In CSS, what does the 'C' stand for in 'CSS'?",
@@ -28,6 +30,7 @@ const questions = [
       { text: "Computer", correct: false },
     ],
     penalty: 5,
+    category: "CSS",
   },
   {
     question:
@@ -39,6 +42,7 @@ const questions = [
       { text: "letter-spacing", correct: false },
     ],
     penalty: 2,
+    category: "CSS",
   },
   {
     question: "In JavaScript, what is the '===' operator used for?",
@@ -49,6 +53,7 @@ const questions = [
       { text: "To perform a logical OR operation.", correct: false },
     ],
     penalty: 4,
+    category: "JS",
   },
   {
     question: "Which HTML tag is used to create a hyperlink?",
@@ -59,6 +64,7 @@ const questions = [
       { text: "<h1_link>", correct: false },
     ],
     penalty: 5,
+    category: "HTML",
   },
   {
     question: "What does CSS stand for?",
@@ -69,6 +75,7 @@ const questions = [
       { text: "Colorful Style Sheets", correct: false },
     ],
     penalty: 3,
+    category: "CSS",
   },
   {
     question:
@@ -80,16 +87,18 @@ const questions = [
       { text: "create myVar;", correct: false },
     ],
     penalty: 4,
+    category: "JS",
   },
   {
     question: "Which of the following is an example of an HTML semantic tag?",
     answers: [
+      { text: "<footer>", correct: true },
       { text: "<div>", correct: false },
       { text: "<span>", correct: false },
-      { text: "<footer>", correct: true },
       { text: "<p>", correct: false },
     ],
     penalty: 3,
+    category: "HTML",
   },
   {
     question:
@@ -99,27 +108,29 @@ const questions = [
         text: "To select all elements that match a CSS selector.",
         correct: false,
       },
+      { text: "To modify the style of an element.", correct: false },
+      { text: "To create a new HTML element.", correct: false },
       {
         text: "To select the first element that matches a CSS selector.",
         correct: true,
       },
-      { text: "To modify the style of an element.", correct: false },
-      { text: "To create a new HTML element.", correct: false },
     ],
     penalty: 2,
+    category: "JS",
   },
   {
     question: "In CSS, what is the 'box model'?",
     answers: [
       { text: "A method for creating responsive layouts.", correct: false },
+      { text: "A set of rules for positioning elements.", correct: false },
       {
         text: "A visual formatting model where each element is rendered as a box.",
         correct: true,
       },
-      { text: "A set of rules for positioning elements.", correct: false },
       { text: "A way to define the shape of an element.", correct: false },
     ],
     penalty: 3,
+    category: "CSS",
   },
   {
     question: "What is the correct syntax for a JavaScript 'for' loop?",
@@ -130,6 +141,7 @@ const questions = [
       { text: "for i = 1 to 5", correct: false },
     ],
     penalty: 5,
+    category: "JS",
   },
 ];
 export { questions };

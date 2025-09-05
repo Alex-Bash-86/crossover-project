@@ -89,12 +89,6 @@ body {
   }
 }
 
-.tux-avatar-container {
-  /* Center the content horizontally */
-  display: flex;
-  justify-content: center /* Center horizontally */;
-}
-
 /* Main content layout for desktop */
 .main-content {
   display: flex;

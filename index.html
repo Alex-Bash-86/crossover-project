@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./static/mal.css" />
-    <link rel="stylesheet" href="./static/mal2.css" />
+    <link rel="stylesheet" href="./static/style.css" />
+    <!-- <link rel="stylesheet" href="./static/mal.css" />
+    <link rel="stylesheet" href="./static/mal2.css" /> -->
     <title>
       WWDWBSCSCSW - Wer wird Deutschlands WBS Coding School Code Skill Wizard?
     </title>
@@ -18,7 +19,7 @@
   </head>
   <body>
     <div id="root">
-      <h1 class="main-title">Wizard's WBS Quiz</h1>
+      <h1 class="main-title">once upon a time...</h1>
       <div class="container" id="game-container">
         <!-- mca: updated layout -->
         <div class="main-content">
@@ -26,9 +27,11 @@
           <div class="left-panel">
             <!-- tux-wiz + extra tile -->
             <div id="tux-wiz-container" class="tux-wiz">
-              <h1 class="categorie-title">Kategorie: WBS</h1>
-              <h2 class="level-title">Level 1</h2>
-              <div id="tux-avatar-container">
+              <h1 class="categorie-title" id="categorie-title">
+                Kategorie: WBS
+              </h1>
+              <h2 class="level-title" id="level-title">Level 1</h2>
+              <div id="tux-avatar-container" class="tux-avatar-container">
                 <div>
                   <img
                     src="./static/img/wizard-avatar.svg"
@@ -39,8 +42,17 @@
                     id="wizard-avatar"
                   />
                 </div>
+                <!-- used for joker logic -->
+                <!-- <div id="joker-tile">
+                  <ul>
+                    <li>Joker 1</li>
+                    <li>Joker 2</li>
+                    <li>Joker 3</li>
+                  </ul>
+                </div> -->
               </div>
               <div class="health-bar-container" id="health-bar-container"></div>
+              <div class="mana-bar-container" id="mana-bar-container"></div>
             </div>
             <!-- need a scoreboard cause scoreboards are aw3sum dey say! -->
             <div id="info-board" class="info-board">
@@ -69,7 +81,7 @@
         </div>
       </div>
     </div>
-    <script src="./main.js"></script>
+    <!-- <script src="./main.js"></script> -->
     <script type="module" src="./static/js/mal.js"></script>
   </body>
 </html>
