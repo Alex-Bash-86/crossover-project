@@ -21,7 +21,6 @@ body {
   background-image: linear-gradient(to bottom, #3b5a97, #9c9ea3);
   background-image: url("./img/worlds/bg.jpg");
   /* adding grayscale to background */
-
   background-repeat: no-repeat;
   background-size: cover;
   backdrop-filter: blur(5px);
@@ -48,8 +47,11 @@ body {
   gap: 1.25rem;
   /* Required for pseudo-element positioning */
   overflow: hidden;
-  width: 685px;
-  height: 425px;
+  /*/
+  /* REFACTORING NEEDED for further responsive design */
+  width: 685px; /* killing handy option right here */
+  height: 425px; /* and here */
+  /*/
   /* some outter glow for more dimension */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   filter: drop-shadow(0 4px 6px rgba(2, 2, 5, 0.3));
@@ -66,7 +68,6 @@ body {
   height: 100%;
   /* Opacity and blur effect */
   opacity: 0.69; /* Adjust this value (e.g., 0.3 for 30% opacity) */
-
   /* Ensures content is above the background */
   z-index: -1;
   background-image: url("../static/img/worlds/world-1.png");
