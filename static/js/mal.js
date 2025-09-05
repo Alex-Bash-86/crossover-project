@@ -11,13 +11,13 @@ const feedbackMessageElement = document.getElementById("feedback-message");
 const scoreDisplay = document.getElementById("score-display");
 const highScoreDisplay = document.getElementById("high-score-display");
 const wizardPrompt = document.getElementById("wizard-prompt");
-// const tuxContainer = document.getElementById("tux-avatar-container");
 const healthBarContainer = document.getElementById("health-bar-container");
-// const wpContainer = document.getElementById("game-container");
 const categoryTitleContainer = document.getElementById("categorie-title");
 const lvlTitleContainer = document.getElementById("level-title");
+// const tuxContainer = document.getElementById("tux-avatar-container");
 // const wizardAvatar = document.getElementById("wizard-avatar");
 // const healthBarFill = document.getElementById("health-bar-fill");
+// const wpContainer = document.getElementById("game-container");
 
 // * Further Implementations:
 //* RND BG SWITCHER (yeah, really for both classes!) /*edited: those damn pseudo-classes- not working as intended... YET!*/
