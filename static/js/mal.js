@@ -1,8 +1,8 @@
 // importing questions
-import { questions } from "./questions-mal.js";
+import { questions } from "./mal-questions.js";
+// import { wizQuestion, wizHappy, wizSad, wizInfo } from "./mal-wizard.js";
 
 // declaring DOM elements
-
 const startButton = document.getElementById("start-button");
 const questionContainer = document.getElementById("question-container");
 const questionTextElement = document.getElementById("question-text");
@@ -216,6 +216,7 @@ function endGame() {
   // edited: realisied via updateHealthBar() function
 
   // should we save the high score? / not sure yet, it's late!
+  // prob not as it's already using local storage
   // let highScore = localStorage.getItem("highScore");
   // if (highScore === null) {
   //   highScore = 0;
