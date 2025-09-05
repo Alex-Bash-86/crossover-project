@@ -1,4 +1,4 @@
-// importing questionshttp://127.0.0.1:3000/index.html
+// importing questions
 import { questions } from "./mal-questions.js";
 import { wizQuestion, wizHappy, wizSad, wizInfo } from "./mal-wizard.js";
 
@@ -14,7 +14,8 @@ const wizardPrompt = document.getElementById("wizard-prompt");
 const healthBarContainer = document.getElementById("health-bar-container");
 const categoryTitleContainer = document.getElementById("categorie-title");
 const lvlTitleContainer = document.getElementById("level-title");
-// const tuxContainer = document.getElementById("tux-avatar-container");
+
+//* not used at the moment
 // const wizardAvatar = document.getElementById("wizard-avatar");
 // const healthBarFill = document.getElementById("health-bar-fill");
 // const wpContainer = document.getElementById("game-container");
@@ -256,3 +257,15 @@ function endGame() {
 startButton.addEventListener("click", () => {
   startGame();
 });
+
+//* Further TODO list:
+//* RND BG SWITCHER (yeah, really for both classes!)
+//* RND AVATAR SWITCHER
+//* Mana bar logic & Styling
+//* replacing bg-images
+// * (need more high for responsive design > comment out in css width&height values actually set to fixed px")
+//* Joker logic
+// Further further TODO list:
+// refactoring to a wiz class > initiating different wizards classes << MP? POOOOAHHHH
+// different avatars for different wizards
+// different jokers for different wizards

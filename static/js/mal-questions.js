@@ -22,7 +22,7 @@ const questions = [
     category: "JS",
   },
   {
-    question: "In CSS, what does the 'C' stand for in 'CSS'?",
+    question: "Talking about CSS: what does the 'C' stand for in 'CSS'?",
     answers: [
       { text: "Creative", correct: false },
       { text: "Cascading", correct: true },
