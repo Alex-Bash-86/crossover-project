@@ -1,4 +1,4 @@
-// importing questions
+// importing questionshttp://127.0.0.1:3000/index.html
 import { questions } from "./mal-questions.js";
 import { wizQuestion, wizHappy, wizSad, wizInfo } from "./mal-wizard.js";
 
@@ -16,6 +16,7 @@ const tuxContainer = document.getElementById("tux-avatar-container");
 // const healthBarFill = document.getElementById("health-bar-fill");
 const healthBarContainer = document.getElementById("health-bar-container");
 const wpContainer = document.getElementById("game-container");
+const categoryTitleContainer = document.getElementById("categorie-title");
 
 // RND BG SWITCHER (yeah, really for both classes!) /*edited: not working as intended... YET!*/
 document.addEventListener("DOMContentLoaded", function () {
@@ -120,9 +121,18 @@ function showQuestion() {
 
   if (currentQuestionIndex < questions.length) {
     let currentQuestion = questions[currentQuestionIndex];
-    console.log(currentQuestionIndex);
-    questionTextElement.textContent = currentQuestion.question;
 
+    //* at this point we should set all question related stuff, variables n ish
+    //* check >> console.log(currentQuestion); / we got errthing we need right here,
+    //* console to see all content of currentQuestion
+    //
+    // console.log(currentQuestionIndex);
+    // console.log(currentQuestion);
+
+    // setting category title
+    categoryTitleContainer.textContent = `Kategorie: ${currentQuestion.category}`;
+
+    questionTextElement.textContent = currentQuestion.question;
     currentQuestion.answers.forEach((answer) => {
       const button = document.createElement("button");
       button.textContent = answer.text;

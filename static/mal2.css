@@ -64,22 +64,6 @@
   margin-bottom: 0.5rem;
 }
 
-.health-bar-container {
-  width: 200px;
-  height: 20px;
-  border: 1px solid #000;
-  background-color: #eee;
-  border-radius: 5px;
-  display: none; /* we will set this value to "block" when the game starts */
-}
-
-.health-bar-fill {
-  height: 100%;
-  /* width: 100%; we will update THIS value with JS */
-  background-color: #4caf50;
-  border-radius: 5px;
-}
-
 .feedback-message {
   color: #f3f3f3; /* text-gray-700 */
   line-height: 1.625; /* leading-relaxed */

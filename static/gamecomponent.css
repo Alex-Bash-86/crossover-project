@@ -1,6 +1,12 @@
 /* gamecomponent.css */
 /* all styles for gamecomponents only */
 
+.tux-avatar-container {
+  /* Center the content horizontally */
+  display: flex;
+  justify-content: center /* Center horizontally */;
+}
+
 .health-bar-container {
   width: 200px;
   height: 20px;
