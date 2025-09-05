@@ -1,6 +1,6 @@
 // importing questions
 import { questions } from "./mal-questions.js";
-// import { wizQuestion, wizHappy, wizSad, wizInfo } from "./mal-wizard.js";
+import { wizQuestion, wizHappy, wizSad, wizInfo } from "./mal-wizard.js";
 
 // declaring DOM elements
 const startButton = document.getElementById("start-button");
@@ -11,9 +11,9 @@ const feedbackMessageElement = document.getElementById("feedback-message");
 const scoreDisplay = document.getElementById("score-display");
 const highScoreDisplay = document.getElementById("high-score-display");
 const wizardPrompt = document.getElementById("wizard-prompt");
-const wizardAvatar = document.getElementById("wizard-avatar");
+// const wizardAvatar = document.getElementById("wizard-avatar");
 const tuxContainer = document.getElementById("tux-avatar-container");
-const healthBarFill = document.getElementById("health-bar-fill");
+// const healthBarFill = document.getElementById("health-bar-fill");
 const healthBarContainer = document.getElementById("health-bar-container");
 const wpContainer = document.getElementById("game-container");
 
@@ -62,41 +62,41 @@ let health = 100;
 
 // AVATAR SWITCHER
 // changing image functions for the wiz
-function wizQuestion() {
-  tuxContainer.innerHTML = "";
-  // Set the new source path for the image
-  let tuxImg = ` <img src="./static/img/tux/tux-question.svg" width="100"
-                  height="100" alt="tux-wizard" class="wizard"
-                  id="wizard-avatar"/>`;
-  tuxContainer.innerHTML = tuxImg;
-}
-function wizHappy() {
-  // Set the new source path for the image
-  tuxContainer.innerHTML = "";
-  // Set the new source path for the image
-  let tuxImg = ` <img src="./static/img/tux/tux-happy-1.svg" width="100"
-                  height="100" alt="tux-wizard" class="wizard"
-                  id="wizard-avatar"/>`;
-  tuxContainer.innerHTML = tuxImg;
-}
-function wizSad() {
-  // Set the new source path for the image
-  tuxContainer.innerHTML = "";
-  // Set the new source path for the image
-  let tuxImg = ` <img src="./static/img/tux/tux-sad.svg" width="100"
-                  height="100" alt="tux-wizard" class="wizard"
-                  id="wizard-avatar"/>`;
-  tuxContainer.innerHTML = tuxImg;
-}
-function wizInfo() {
-  // Set the new source path for the image
-  tuxContainer.innerHTML = "";
-  // Set the new source path for the image
-  let tuxImg = ` <img src="./static/img/tux/tux-idea.svg" width="100"
-                  height="100" alt="tux-wizard" class="wizard"
-                  id="wizard-avatar"/>`;
-  tuxContainer.innerHTML = tuxImg;
-}
+// function wizQuestion() {
+//   tuxContainer.innerHTML = "";
+//   // Set the new source path for the image
+//   let tuxImg = ` <img src="./static/img/tux/tux-question.svg" width="100"
+//                   height="100" alt="tux-wizard" class="wizard"
+//                   id="wizard-avatar"/>`;
+//   tuxContainer.innerHTML = tuxImg;
+// }
+// function wizHappy() {
+//   // Set the new source path for the image
+//   tuxContainer.innerHTML = "";
+//   // Set the new source path for the image
+//   let tuxImg = ` <img src="./static/img/tux/tux-happy-1.svg" width="100"
+//                   height="100" alt="tux-wizard" class="wizard"
+//                   id="wizard-avatar"/>`;
+//   tuxContainer.innerHTML = tuxImg;
+// }
+// function wizSad() {
+//   // Set the new source path for the image
+//   tuxContainer.innerHTML = "";
+//   // Set the new source path for the image
+//   let tuxImg = ` <img src="./static/img/tux/tux-sad.svg" width="100"
+//                   height="100" alt="tux-wizard" class="wizard"
+//                   id="wizard-avatar"/>`;
+//   tuxContainer.innerHTML = tuxImg;
+// }
+// function wizInfo() {
+//   // Set the new source path for the image
+//   tuxContainer.innerHTML = "";
+//   // Set the new source path for the image
+//   let tuxImg = ` <img src="./static/img/tux/tux-idea.svg" width="100"
+//                   height="100" alt="tux-wizard" class="wizard"
+//                   id="wizard-avatar"/>`;
+//   tuxContainer.innerHTML = tuxImg;
+// }
 
 function updateHealthBar(penaltyPoints) {
   health -= penaltyPoints;
@@ -107,6 +107,7 @@ function updateHealthBar(penaltyPoints) {
     // setting currentQuestionIndex to 999 to end the game
     // as endgame() with currentQuestionIndex < questions.length will trigger a new question
     currentQuestionIndex = 999;
+    // second thought: probably better to set currentQuestionIndex to questions.length, in case we got over 1000 questions :)))
   } else {
     healthBarContainer.innerHTML = "";
     healthBarContainer.innerHTML = `<div class="health-bar-fill" id="health-bar-fill" style="width: ${health}%"></div>`;
