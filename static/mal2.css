@@ -47,3 +47,11 @@
   font-size: 0.9rem;
   margin-bottom: -2.5rem;
 }
+.divcqw {
+  color: #e5b346; /* text-gray-700 */
+  line-height: 1.425; /* leading-relaxed */
+  font-style: italic;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 0.55rem;
+}
