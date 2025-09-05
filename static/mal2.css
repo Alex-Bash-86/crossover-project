@@ -1,37 +1,3 @@
-/* Answer buttons grid layout */
-.answer-buttons {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-/* Answer button base styling */
-.answer-btn {
-  background-color: #e5e7eb; /* bg-gray-200 */
-  color: #1f2937; /* text-gray-800 */
-  font-weight: 500; /* font-medium */
-  padding: 0.75rem 1rem; /* py-3 px-4 */
-  border-radius: 0.75rem; /* rounded-xl */
-  text-align: left;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-  transition: all 0.2s ease-in-out;
-  border: none;
-  cursor: hand;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 2rem;
-  animation: cubic-bezier(1, 0, 0, 1);
-}
-
-/* Answer button hover effect */
-.answer-btn:hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #fdd783;
-  scale: 1.05;
-  padding: 0.5rem 1rem;
-}
-
 /* animating like wizard randomly and loop infinitely on mouseover 
   /* edited: was bs, couldn't even click the button
   /*
@@ -72,4 +38,12 @@
   text-align: center;
   font-weight: bold;
   font-size: 1.1rem;
+}
+.instructions {
+  color: #f3f3f3; /* text-gray-700 */
+  line-height: 1.425; /* leading-relaxed */
+  font-style: italic;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: -2.5rem;
 }
